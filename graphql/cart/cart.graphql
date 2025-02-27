@@ -1,0 +1,51 @@
+mutation AddToCart($productId: Int!, $quantity: Int!) {
+  addToCart(productId: $productId, quantity: $quantity) {
+    success
+    message
+  }
+}
+
+mutation RemoveFromCart($variationId: Int, $productId: Int!) {
+  removeFromCart(productId: $productId, variationId: $variationId) {
+    success
+    message
+  }
+}
+
+query MyCart {
+  myCart {
+    id
+    sessionId
+    createdAt
+    updatedAt
+    totalPrice
+    cartItems {
+      id
+      quantity
+      product {
+        productName
+        productId
+        price
+        description
+        discountPercent
+        availableUnit
+        reviewCount
+        weight
+        dateCreated
+        dateUpdated
+        rating
+        images {
+          id
+          imageUrl
+        }
+      }
+      cart {
+        id
+        sessionId
+        createdAt
+        updatedAt
+        totalPrice
+      }
+    }
+  }
+}

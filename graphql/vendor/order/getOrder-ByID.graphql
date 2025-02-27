@@ -1,0 +1,55 @@
+query GetOrderById($orderId: ID!) {
+  GetOrderById(orderId: $orderId) {
+    id
+    totalAmount
+    createdAt
+    updatedAt
+    address1
+    address2
+    phone
+    postCode
+    status
+    items {
+      id
+      price
+      quantity
+      createdAt
+      updatedAt
+      product {
+        productName
+        productId
+        price
+        description
+        discountPercent
+        availableUnit
+        reviewCount
+        weight
+        dateCreated
+        dateUpdated
+        rating
+        slug
+        publish
+        status
+        soldOut
+        isDeleted
+        viewCount
+        images {
+          id
+          imageUrl
+        }
+      }
+    }
+    payments {
+      id
+      amount
+      email
+      otToken
+      phone
+      paymentMethod
+      referenceId
+      currency
+      status
+      createdAt
+    }
+  }
+}

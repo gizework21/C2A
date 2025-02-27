@@ -1,0 +1,39 @@
+query getCategoryByParent {
+  getCategoryByParent {
+    title
+    id
+    children {
+      title
+      id
+      children {
+        title
+        id
+        children {
+          title
+          id
+          children {
+            title
+            id
+          }
+        }
+      }
+    }
+  }
+}
+
+query getCategoryByName($category: String!) {
+  getCategoryByName(title: $category) {
+    id
+    products {
+      price
+      productName
+      images {
+        id
+        imageUrl
+      }
+      rating
+      productId
+      availableUnit
+    }
+  }
+}

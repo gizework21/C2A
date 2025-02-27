@@ -1,0 +1,22 @@
+mutation UserLogin($email: String!, $password: String!) {
+  loginWithPassword(email: $email, password: $password) {
+    payload {
+      id
+      firstName
+      lastName
+      phone
+      email
+      profilePic
+      language
+      isActive
+      isStaff
+      isVerified
+      isSuperuser
+      role
+      gender
+      permissions
+    }
+    isSuccess
+    token
+  }
+}

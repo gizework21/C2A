@@ -1,0 +1,27 @@
+query getVendorId {
+  vendorData {
+    id
+  }
+}
+
+query getVendorSupplierDashboard {
+  vendorDashboardSummery {
+    canceledOrders
+    categories
+    deletedProducts
+    pendingOrders
+    deliveredOrders
+    products
+    returnedOrders
+    promotions
+    shippedOrders
+    soldOutProducts
+    totalMoney
+  }
+}
+
+query isVendor {
+  vendorData {
+    isSupplier
+  }
+}

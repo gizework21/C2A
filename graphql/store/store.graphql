@@ -1,0 +1,18 @@
+query GetProductByVendor($username: String!) {
+  getProductByVendor(username: $username, page: 1, perPage: 10) {
+    objects {
+      price
+      productName
+      productId
+      images {
+        id
+        imageUrl
+      }
+      rating
+      reviewCount
+      status
+      dateCreated
+      discountPercent
+    }
+  }
+}

@@ -1,0 +1,19 @@
+mutation UpdateVendorAddress(
+  $location: String
+  $subCity: String
+  $country: String
+  $woreda: String
+) {
+  updateVendor(
+    location: $location
+    subCity: $subCity
+    country: $country
+    woreda: $woreda
+  ) {
+    payload {
+      user {
+        email
+      }
+    }
+  }
+}

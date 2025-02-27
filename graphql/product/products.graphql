@@ -1,0 +1,134 @@
+query productReviews($productId: Int!, $page: Int, $pageSize: Int) {
+  productReviews(productId: $productId, page: $page, perPage: $pageSize) {
+    objects {
+      content
+      rating
+      user {
+        id
+        firstName
+        lastName
+        language
+        profilePic
+        isVerified
+        username
+      }
+      createdAt
+      id
+      title
+    }
+    page
+    pages
+    hasNext
+    hasPrev
+  }
+}
+
+query GetProduct($productId: ID!) {
+  GetProduct(productId: $productId) {
+    price
+    discountPercent
+    productName
+    productId
+    color {
+      hexCode
+      rgbCode
+    }
+    description
+    rating
+    images {
+      imageUrl
+      id
+    }
+    vendor {
+      id
+      user {
+        id
+        username
+      }
+      storeName
+      isVerified
+      customerRating
+    }
+    availableUnit
+    dateCreated
+    reviewCount
+    variants {
+      availableUnit
+      color {
+        id
+        name
+        hexCode
+        rgbCode
+      }
+      material
+      size
+      variantPrice
+      weight
+      id
+    }
+  }
+}
+
+#  ProductAttributeInput = {
+#   key: String
+#   value: String
+# }
+
+mutation CreateProducts(
+  $image: Upload!
+  $availableUnit: Int
+  $categoryId: ID!
+  $productName: String!
+  $discountPercent: Int
+  $price: Float!
+  $colors: [String]
+  $description: String
+  # attributes
+  $attributes: [ProductAttributeInput]
+  ## Variations
+  $variations: [ProductVariationInput]
+
+) {
+  createProduct(
+    availableUnit: $availableUnit
+    attributes: $attributes
+    categoryId: $categoryId
+    productName: $productName
+    discountPercent: $discountPercent
+    price: $price
+    images: { image: $image }
+    description: $description
+    colors: $colors
+    variations: $variations
+  ) {
+    products {
+      price
+      slug
+      rating
+      status
+      images {
+        imageUrl
+      }
+      variants {
+        availableUnit
+        weight
+        color {
+          hexCode
+        }
+      }
+    }
+  }
+}
+
+query GetRelatedProducts($productId: ID!) {
+  getRelatedProducts(productId: $productId) {
+    productId
+    productName
+    rating
+    images {
+      id
+      imageUrl
+    }
+    price
+  }
+}

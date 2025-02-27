@@ -1,0 +1,18 @@
+query GetVendorProducts($page: Int, $perPage: Int) {
+  getMyProducts(page: $page, perPage: $perPage) {
+    hasNext
+    page
+    pages
+    totalCounts
+    products {
+      price
+      productName
+      productId
+      dateCreated
+      images {
+        imageUrl
+        id
+      }
+    }
+  }
+}

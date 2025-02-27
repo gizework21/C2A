@@ -1,0 +1,26 @@
+query GetMyOrders {
+  getMyOrders {
+    orders {
+      id
+      items {
+        id
+        product {
+          productName
+          productId
+        }
+        price
+      }
+      user {
+        id
+        firstName
+        lastName
+      }
+      status
+      createdAt
+    }
+    # uncomment this when the issue fixed for the page pagination
+    # page
+    pages
+    totalCounts
+  }
+}

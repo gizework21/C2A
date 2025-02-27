@@ -1,0 +1,12 @@
+import * as Types from '../types.generated';
+
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+export type GetProductByVendorQueryVariables = Types.Exact<{
+  username: Types.Scalars['String']['input'];
+}>;
+
+
+export type GetProductByVendorQuery = { __typename?: 'Query', getProductByVendor?: { __typename?: 'PaginatedProductType', objects?: Array<{ __typename?: 'ProductsType', price: number, productName: string, productId: string, rating?: number | null, reviewCount: number, status: Types.ProductsProductsModelStatusChoices, dateCreated: any, discountPercent: number, images: Array<{ __typename?: 'ProductsImageType', id: string, imageUrl?: string | null }> } | null> | null } | null };
+
+
+export const GetProductByVendorDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetProductByVendor"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"username"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getProductByVendor"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"username"},"value":{"kind":"Variable","name":{"kind":"Name","value":"username"}}},{"kind":"Argument","name":{"kind":"Name","value":"page"},"value":{"kind":"IntValue","value":"1"}},{"kind":"Argument","name":{"kind":"Name","value":"perPage"},"value":{"kind":"IntValue","value":"10"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"objects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"price"}},{"kind":"Field","name":{"kind":"Name","value":"productName"}},{"kind":"Field","name":{"kind":"Name","value":"productId"}},{"kind":"Field","name":{"kind":"Name","value":"images"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"imageUrl"}}]}},{"kind":"Field","name":{"kind":"Name","value":"rating"}},{"kind":"Field","name":{"kind":"Name","value":"reviewCount"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"dateCreated"}},{"kind":"Field","name":{"kind":"Name","value":"discountPercent"}}]}}]}}]}}]} as unknown as DocumentNode<GetProductByVendorQuery, GetProductByVendorQueryVariables>;

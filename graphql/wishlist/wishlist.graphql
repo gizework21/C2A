@@ -1,0 +1,31 @@
+mutation AddToWishlist($productId: ID!) {
+  addToWishlist(productId: $productId) {
+    wishlist {
+      id
+      product {
+        productName
+        productId
+      }
+    }
+  }
+}
+
+mutation RemoveFromWishlist($productId: ID!) {
+  removeFromWishlist(productId: $productId) {
+    success
+  }
+}
+
+query GetWishList {
+  getWishlist {
+    product {
+      price
+      availableUnit
+      productName
+      productId
+    }
+    productImages {
+      imageUrl
+    }
+  }
+}

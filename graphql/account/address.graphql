@@ -1,0 +1,67 @@
+query GetUserContactDetail {
+  getUserContactDetail {
+    addressId
+    street1
+    street2
+    city
+    state
+    country
+    zipcode
+    phone
+    isDefault
+  }
+}
+
+mutation UpdateContactDetail(
+  $addressId: ID!
+  $city: String!
+  $country: String!
+  $isDefault: Boolean!
+  $phone: String!
+  $state: String!
+  $street1: String!
+  $street2: String
+  $zipcode: String!
+) {
+  updateContactDetail(
+    addressId: $addressId
+    city: $city
+    country: $country
+    isDefault: $isDefault
+    phone: $phone
+    state: $state
+    street1: $street1
+    street2: $street2
+    zipcode: $zipcode
+  ) {
+    contactDetail {
+      addressId
+    }
+  }
+}
+
+mutation CreateUserAddress(
+  $city: String!
+  $country: String!
+  $phone: String!
+  $state: String!
+  $street1: String!
+  $street2: String
+  $isDefault: Boolean
+  $zipcode: String!
+) {
+  createContactDetail(
+    city: $city
+    country: $country
+    phone: $phone
+    state: $state
+    street1: $street1
+    street2: $street2
+    zipcode: $zipcode
+    isDefault: $isDefault
+  ) {
+    contactDetail {
+      country
+    }
+  }
+}

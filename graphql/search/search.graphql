@@ -1,0 +1,32 @@
+query searchProducts(
+  $page: Int
+  $perPage: Int
+  $minPrice: Int
+  $maxPrice: Int
+  $category: ID
+  $search: String
+) {
+  searchProducts(
+    page: $page
+    perPage: $perPage
+    minPrice: $minPrice
+    maxPrice: $maxPrice
+    category: $category
+    search: $search
+  ) {
+    objects {
+      price
+      images {
+        id
+        imageUrl
+      }
+      productId
+      productName
+      publish
+      rating
+      reviewCount
+      discountPercent
+      availableUnit
+    }
+  }
+}

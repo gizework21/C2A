@@ -1,0 +1,55 @@
+mutation CreateOrder(
+  $address1: String!
+  $address2: String
+  $phone: String!
+  $postCode: String
+  $productIds: [ID!]!
+) {
+  createOrder(
+    address1: $address1
+    phone: $phone
+    productIds: $productIds
+    address2: $address2
+    postCode: $postCode
+  ) {
+    payload {
+      id
+      address1
+      status
+      phone
+    }
+  }
+}
+
+query getCustomerOrders($page: Int!, $perPage: Int!) {
+  getUserOrders(page: $page, perPage: $perPage) {
+    objects {
+      id
+      items {
+        id
+        price
+        quantity
+        product {
+          productName
+          productId
+          images {
+            imageUrl
+            id
+          }
+        }
+      }
+      status
+      totalAmount
+      payments {
+        status
+        id
+      }
+      createdAt
+    }
+    hasNext
+    hasPrev
+    page
+    pages
+    totalObjects
+  }
+}

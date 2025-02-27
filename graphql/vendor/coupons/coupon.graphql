@@ -1,0 +1,26 @@
+mutation CreateCoupon(
+  $code: String!
+  $discountPercent: Decimal!
+  $endDate: Date!
+  $startDate: Date!
+) {
+  createCoupon(
+    code: $code
+    discountPercent: $discountPercent
+    endDate: $endDate
+    startDate: $startDate
+  ) {
+    errors
+  }
+}
+
+query GetVendorCoupons {
+  coupons {
+    endDate
+    id
+    isActive
+    startDate
+    code
+    discountPercent
+  }
+}

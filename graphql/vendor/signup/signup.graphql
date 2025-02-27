@@ -1,0 +1,56 @@
+mutation CreateVendor(
+  $user: UUID!
+  $phone: String
+  $region: String
+  $storeName: String
+  $tinNumber: String!
+  $woreda: String!
+  $storeLocations: [String]
+  $accountHolderName: String!
+  $accountNumber: String!
+  $bankName: String!
+  $country: String!
+  $bankBranch: String
+  $accountType: String
+  # $image: ImageScalar!
+) {
+  createVendor(
+    user: $user
+    storeName: $storeName
+    phone: $phone
+    region: $region
+    tinNumber: $tinNumber
+    woreda: $woreda
+    storeLocations: $storeLocations
+  ) {
+    payload {
+      storeName
+      phone
+      region
+      tinNumber
+      woreda
+      storeLocations
+    }
+  }
+  addVendorBank(
+    accountHolderName: $accountHolderName
+    accountNumber: $accountNumber
+    bankName: $bankName
+    country: $country
+    accountType: $accountType
+    bankBranch: $bankBranch
+  ) {
+    payload {
+      accountName
+      accountNumber
+      bankName
+      country
+    }
+  }
+
+  # addVendorImage(image: $image) {
+  #   payload {
+  #     image
+  #   }
+  # }
+}

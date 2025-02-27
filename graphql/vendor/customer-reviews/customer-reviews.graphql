@@ -1,0 +1,21 @@
+query ReviewsForVendor($page: Int!, $perPage: Int!) {
+  reviewsForVendor(page: $page, perPage: $perPage) {
+    page
+    pages
+    hasNext
+    hasPrev
+    totalObjects
+    objects {
+      product {
+        images {
+          imageUrl
+        }
+        price
+        productName
+        discountPercent
+        rating
+        productId
+      }
+    }
+  }
+}

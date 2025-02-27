@@ -1,0 +1,25 @@
+mutation UserSignUp(
+  $dateOfBirth: Date
+  $email: String!
+  $firstName: String!
+  $gender: String
+  $lastName: String!
+  $password: String!
+  $phone: String!
+  $profilePic: ImageScalar
+  $username: String!
+) {
+  userSignup(
+    dateOfBirth: $dateOfBirth
+    email: $email
+    firstName: $firstName
+    gender: $gender
+    lastName: $lastName
+    password: $password
+    phone: $phone
+    username: $username
+    profilePic: $profilePic
+  ) {
+    token
+  }
+}

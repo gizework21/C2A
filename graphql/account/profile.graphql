@@ -1,0 +1,53 @@
+query getUserProfile {
+  getMe {
+    email
+    firstName
+    gender
+    id
+    language
+    lastName
+    phone
+    profilePic
+    role
+    username
+  }
+}
+
+mutation UpdateProfile(
+  $firstName: String
+  $language: String
+  $email: String
+  $lastName: String
+  $phone: String
+  $profilePic: ImageScalar
+  $username: String
+) {
+  updateProfile(
+    firstName: $firstName
+    language: $language
+    email: $email
+    lastName: $lastName
+    phone: $phone
+    profilePic: $profilePic
+    username: $username
+  ) {
+    payload {
+      email
+      firstName
+      gender
+      id
+      isActive
+      isStaff
+      language
+      lastName
+      permissions
+      phone
+      profilePic
+      updatedAt
+      username
+      isSuperuser
+      isVerified
+      role
+    }
+  }
+}

@@ -1,0 +1,9 @@
+query GetCategoryAttributes($categoryId: ID) {
+    getCategoryAttributes(categoryId: $categoryId) {
+        id
+        attributeType
+        name
+        isRequired
+        options
+    }
+}

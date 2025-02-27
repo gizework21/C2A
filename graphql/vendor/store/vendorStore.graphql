@@ -1,0 +1,53 @@
+mutation UpdateVendor(
+  $storeName: String
+  $country: String
+  $region: String
+  $subCity: String
+  $location: String
+  $description: String
+  $tinNumber: String
+  $email: String
+  $phone: String
+  $supportPhone: String
+  $tradeName: String
+) {
+  updateVendor(
+    storeName: $storeName
+    country: $country
+    region: $region
+    subCity: $subCity
+    location: $location
+    description: $description
+    tinNumber: $tinNumber
+    email: $email
+    phone: $phone
+    supportPhone: $supportPhone
+    tradeName: $tradeName
+  ) {
+    payload {
+      storeName
+      description
+      id
+    }
+  }
+}
+
+query Supplier($id: UUID!) {
+  supplier(id: $id) {
+    id
+    storeName
+    country
+    tinNumber
+    woreda
+    email
+    subCity
+    phone
+    kebele
+    supportPhone
+    location
+    description
+    tradeName
+    region
+    referenceCode
+  }
+}

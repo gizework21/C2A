@@ -1,0 +1,56 @@
+query allBanners {
+  allBanners {
+    banners {
+      id
+      image
+      title
+      description
+    }
+  }
+  popularProducts(page: 1, perPage: 6) {
+    objects {
+      productName
+      images {
+        imageUrl
+        id
+      }
+      category {
+        title
+        id
+      }
+      productId
+    }
+  }
+  excitingDeals(page: 1, perPage: 10) {
+    hasNext
+    objects {
+      product {
+        images {
+          id
+          imageUrl
+        }
+        productId
+      }
+    }
+  }
+  mostViewedCategories(limit: 6) {
+    title
+    products {
+      productName
+      images {
+        imageUrl
+      }
+    }
+    id
+  }
+  featuredCategories {
+    title
+    products {
+      images {
+        imageUrl
+        id
+      }
+    }
+    id
+  }
+}

@@ -1,0 +1,15 @@
+mutation createReview(
+  $content: String!
+  $productId: ID!
+  $rating: Int!
+  $title: String!
+) {
+  createReview(
+    content: $content
+    productId: $productId
+    rating: $rating
+    title: $title
+  ) {
+    isSuccess
+  }
+}

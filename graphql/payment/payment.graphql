@@ -1,0 +1,19 @@
+mutation CreatePayment(
+  $orderId: ID!
+  $paymentMethod: String!
+  $email: String!
+  $phone: String!
+  $targetCurrency: String!
+) {
+  createPayment(
+    orderId: $orderId
+    paymentMethod: $paymentMethod
+    email: $email
+    phone: $phone
+    targetCurrency: $targetCurrency
+  ) {
+    status
+    message
+    redirectUrl
+  }
+}

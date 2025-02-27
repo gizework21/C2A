@@ -1,0 +1,34 @@
+query GetVendorProfile {
+  vendorData {
+    user {
+      firstName
+      lastName
+      phone
+      profilePic
+      gender
+      email
+    }
+    location
+    country
+    subCity
+    woreda
+  }
+}
+
+mutation UpdateVendorProfile(
+  $email: String!
+  $firstName: String!
+  $lastName: String!
+  $phone: String!
+) {
+  updateProfile(
+    email: $email
+    firstName: $firstName
+    lastName: $lastName
+    phone: $phone
+  ) {
+    payload {
+      email
+    }
+  }
+}

@@ -1,0 +1,25 @@
+query GetAllDeals {
+  allDeals(page: 1, perPage: 10) {
+    hasNext
+    hasPrev
+    page
+    pages
+    totalObjects
+    objects {
+      product {
+        price
+        images {
+          id
+          imageUrl
+        }
+        discountPercent
+        productName
+        rating
+      }
+      discountPercent
+      endDate
+      id
+      startDate
+    }
+  }
+}

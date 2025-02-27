@@ -1,0 +1,15 @@
+mutation CreateDeals(
+  $discountPercent: Int!
+  $endDate: Date!
+  $productIds: [ID]!
+  $startDate: Date!
+) {
+  createDeal(
+    discountPercent: $discountPercent
+    endDate: $endDate
+    productIds: $productIds
+    startDate: $startDate
+  ) {
+    isSuccess
+  }
+}
